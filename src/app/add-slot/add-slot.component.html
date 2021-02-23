@@ -1,0 +1,72 @@
+<mat-toolbar class="primary">
+    <span class="fill-remaining-space">Appointment</span>
+</mat-toolbar>
+
+<div class="container mt-5">
+    <form [formGroup]="appointmentForm" (ngSubmit)="onSubmit()" class="form" novalidate>
+        <div class="form-group">
+            <label>Patient Name</label>
+            <input type="text" formControlName="patientName" class="form-control"
+                [ngClass]="{ 'is-invalid': submitted && f.patientName.errors }" />
+            <div *ngIf="submitted && f.patientName.errors" class="invalid-feedback">
+                <div *ngIf="f.patientName.errors.required">Name is required</div>
+            </div>
+        </div>
+        <div class="form-group">
+            <label>Age</label>
+            <input type="numerer" formControlName="age" class="form-control"
+                [ngClass]="{ 'is-invalid': submitted && f.age.errors }" />
+            <div *ngIf="submitted && f.age.errors" class="invalid-feedback">
+                <div *ngIf="f.age.errors.required || f.mobile.errors.pattern">Age is required / enter valid format</div>
+            </div>
+        </div>
+        <div class="form-group">
+            <label>Mobile</label>
+            <input type="text" formControlName="mobile" class="form-control"
+                [ngClass]="{ 'is-invalid': submitted && f.mobile.errors }" />
+            <div *ngIf="submitted && f.mobile.errors" class="invalid-feedback">
+                <div *ngIf="f.mobile.errors.required">Mobile number is required</div>
+                <div *ngIf="f.mobile.errors.pattern">Please, Enter 10 digit Mobile Number / enter valid format.</div>
+            </div>
+        </div>
+        <div class="form-group">
+            <label>Gender</label>
+            <div class="form-check form-check-inline ml-5">
+                <input class="form-check-input" type="radio" formControlName="gender" name="gender" id="male"
+                    value="Male" checked>
+                <label class="form-check-label" for="male">Male</label>
+            </div>
+            <div class="form-check form-check-inline">
+                <input class="form-check-input" type="radio" formControlName="gender" name="gender" id="female"
+                    value="Female">
+                <label class="form-check-label" for="female">Female</label>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col">
+                <label>From Time</label>
+                <input [ngxTimepicker]="editableDial" formControlName="fromTime" class="form-control"
+                    [ngClass]="{ 'is-invalid': submitted && f.fromTime.errors }"[format]="24" [min]="'10:00'" [max]="'19:00'" readonly/>
+                <ngx-material-timepicker #editableDial [enableKeyboardInput]="true"></ngx-material-timepicker>
+                <div *ngIf="submitted && f.fromTime.errors" class="invalid-feedback">
+                    <div *ngIf="f.fromTime.errors.required">From time is required</div>
+                </div>
+            </div>
+            <div class="col">
+                <label>To Time</label>
+                <input formControlName="toTime" class="form-control"
+                    [ngClass]="{ 'is-invalid': submitted && f.toTime.errors }" [ngxTimepicker]="with5Gap" [format]="24" [min]="'10:00'" [max]="'19:30'" readonly>
+                    <ngx-material-timepicker #with5Gap [minutesGap]="30"></ngx-material-timepicker>
+                <div *ngIf="submitted && f.toTime.errors" class="invalid-feedback">
+                    <div *ngIf="f.toTime.errors.required">To Time is required</div>
+                </div>
+            </div>
+        </div>
+        <div class="row mt-5">
+            <div class="col-sm-10">
+                <button class="btn btn-primary mr-1">ADD</button>
+                <button class="btn btn-secondary" type="reset" (click)="onReset()">Cancel</button>
+            </div>
+        </div>
+    </form>
+</div>

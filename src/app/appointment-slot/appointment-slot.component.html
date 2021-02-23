@@ -1,0 +1,18 @@
+<div class="container-bg">
+    <h3 class="heading">Home / <small>Appointments</small></h3>
+    <mat-grid-list cols="10" rowHeight="600px" class="grid-list">
+        <mat-grid-tile colspan='3' class="grid-tile-1">
+            <igx-calendar #calendar (onSelection)="onSelection($event)" [showWeekNumbers]="true"></igx-calendar>
+            <div class="mt-2 text-center text-danger"><h4> Please choose date and book your slot.</h4></div>
+        </mat-grid-tile>
+        <mat-grid-tile colspan='7' class="grid-tile-2">
+            <div class="row heading">
+                <h3 class="col-10 float-left">Morning / Evening Slot <br /><small>10:00 AM - 07:00 PM</small></h3>
+                <a href="javascript://" (click)="openDialog()" class="col-2 float-right">Add +</a>
+            </div>
+            <section class="ml-5 float-left">
+                <button mat-raised-button class="mr-3 mt-3" *ngFor="let slots of appointmentSlots;">{{ slots.fromTime ? slots.fromTime : '00:00'  }}</button>
+            </section>
+        </mat-grid-tile>
+    </mat-grid-list>
+</div>

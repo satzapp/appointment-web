@@ -1,0 +1,21 @@
+<div class="container-bg">
+    <h3 class="heading">Home</h3>
+    <div class="form-inline">
+        <div class="form-group mb-2">
+            <label class="sr-only">Date</label>
+            <input type="date" [(ngModel)]="searchAppDate" class="form-control" />
+        </div>
+        <button type="submit" class="btn btn-primary mb-2 ml-2" (click)="searchDate()">Search</button>
+    </div>
+    <mat-tab-group>
+        <mat-tab>
+            <ng-template mat-tab-label>
+                <span class="tab-number">{{ appoitmentQueuelist ? appoitmentQueuelist.data.length : 0 }}</span>
+                <span class="tab-text">Queue</span>
+            </ng-template>
+            <div>
+                <queue-waited [queuelist]="appoitmentQueuelist"></queue-waited>
+            </div>
+        </mat-tab>
+    </mat-tab-group>
+</div>

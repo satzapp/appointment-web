@@ -1,0 +1,77 @@
+table {
+    width: 100%;
+}
+
+.wanted,
+.not-arrived {
+    border-radius: 4px;
+    background-color: #dadada;
+    padding: 5px 10px;
+    font-size: 12px;
+}
+.wanted {
+    color: red;
+}
+.chart .material-icons,
+.check-box .material-icons {
+    color: rgb(44, 179, 179);
+    position: relative;
+    top: 8px;
+}
+.chart {
+    border-radius: 4px;
+    background-color: #dadada;
+    padding: 5px 10px;
+    font-size: 12px;
+}
+.check-box .material-icons {
+    font-size: 20px;
+    position: relative;
+    top: 5px;
+}
+.check-box {
+    font-size: 12px;
+}
+.not-arrived {
+    color: cornflowerblue;
+    background-color: rgb(217, 230, 255);
+}
+.drag-ind {
+    color: #aeaeae;
+    position: relative;
+    font-size: 20px;
+}
+.patient-list span{
+    margin-right: 20px;
+}
+.patient-list span img {
+    width: 22px;
+    height: 20px;
+    border-radius: 50%;
+}
+.gender-sec {
+    display: flex;
+    left: 120px;
+    position: relative;
+    color: #9e9e9e;
+    font-size: 11px;
+}
+.new-arrival {
+    position: absolute;
+    font-size: 10px;
+    background: #ead011d4;
+    padding: 0px 4px;
+    color: #fff;
+    height: 18px;
+    margin-left: -4px;
+}
+.count-num {
+    border-radius: 50%;
+    background-color: #dadada;
+    padding: 2px 6px;
+    font-size: 12px;
+}
+.mat-elevation-z8 th {
+    font-weight: 500;
+    color: #333;
+}
